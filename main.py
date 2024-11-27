@@ -18,5 +18,16 @@ def register():
 def manager():
     composant = ["Mouse", "heyrizhfuiahh hfhehhzudhe hfuhehf zhfhzuur hzurghd hzyyhz hzhyhge","gohan.jpeg"]
     return render_template("profile.html", composants = [composant for i in range(10)])
+# create route product main page
+@app.route("/product")
+def product():
+    return render_template("produit.html")
+
+# create route product main page
+@app.route("/shop")
+def shop():
+    return render_template("magasin.html")
+
+
 if __name__ == '__main__':
     app.run()
