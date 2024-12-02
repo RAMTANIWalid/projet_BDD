@@ -1,4 +1,5 @@
 body{
+    display: block;
     font-family: "Roboto", sans-serif;
     box-sizing: content-box;
     overflow-x:hidden;
@@ -7,8 +8,16 @@ body{
     background-position-x: center;
     background-attachment: fixed;
     position: relative;
+    height: auto;
+    overflow-x: hidden;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-clip: border-box;
+    margin-bottom: 50px;
 }
-
 #nav_bar{
     position: fixed;
     top: 0%;
@@ -64,24 +73,30 @@ input{
 }
 main{
     height: auto;
-    width: 100%;
+    width: 90%;
     padding: 15px 15px 25px 15px;
     display: flex;
     gap: 15px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 5px solid grey;
+    border-radius: 15px;
+    margin: 150px auto auto auto;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    box-shadow: -3px -3px 2px rgba(29, 27, 27, 0.5);
 }
 #container_product{
     display: grid;
     width: auto;
-    overflow-x: hidden;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 300px 300px 300px;
     row-gap: 20px;
     column-gap: 10px;
     height: fit-content;
     padding: 10px;
     margin-bottom: 10px;
+    border-radius: 15px;
 }
 #profile_mini{
     display: none;
@@ -94,19 +109,23 @@ main{
 }
 .composant {
     background-color: white;
-    border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 300px;
+    border-radius: 15px;
 }
 
 
 .composant-image {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     width: 100%;
     height: auto;
     margin: 0 0 10px 0;
+    
 }
-
+.animate {
+    animation: animation_product 0.5s forwards; /* Apply animation only when class 'animate' is added */
+}
 
 .composant-content {
     width: auto;
@@ -123,7 +142,6 @@ main{
 .composant span:hover, .composant div:hover .composant span{
     opacity: 0.7;
 }
-
 .composant-title {
     font-size: 1em;
     margin: 0 0 10px 10px;
@@ -135,128 +153,24 @@ main{
     color: #555;
     margin: 0 0 20px 5px;
 }
-
-.more-button {
-    background-color: #007bff; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 15px 30px;
-    cursor: pointer;
-    width: fit-content;
-    height: fit-content;
-    transition: background-color 0.3s;
-}
-
-.more-button:hover {
-    background-color: #0056b3; 
-}
 .material-symbols-outlined{
     color: #555;
 }
 
-.more {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-
-.more:hover {
-    background-color: #0056b3;
-
+.more{
+    flex: 1;
+    margin: auto;
 }
 a{
     text-decoration: none;
 }
-#add_remove_container{
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: space-around;
-    gap: 15px;
-    width: 100%;
-    margin-top: 40px;
+.addcoposant_form{
+    padding-bottom: 15px;
 }
-
-.form-container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 400px;
-    margin-top: 20px;
-}
-
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="number"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-
-textarea {
-    resize: vertical;
-}
-
-.submit-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-
-.submit-button:hover {
-    background-color: #0056b3;
-}
-
-.removelink {
-    background-color: #dc3545; /* Red color for removal */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-
-.removelink:hover {
-
-    background-color: #c82333; /* Darker red on hover */
-
-}
-
 @media screen and (max-width: 700px){
+    body{
+        overflow-y: scroll;
+    }
     main{width: 100vw;}
     #container_product{
         min-width: 90%;
@@ -271,7 +185,10 @@ textarea {
         justify-content: center;
         align-items: center;
     }   
-
+    #nav_bar{
+        position: inherit;
+        overflow-wrap: break-word;
+    }
     #container_logoprof{
         min-width: 80%;
         display: flex;
@@ -305,7 +222,7 @@ textarea {
 
 
 #search_div input {
-    min-width: 100%;
+    min-width: 70%;
     padding: 10px;
     border: 2px solid  rgb(228, 228, 228);
     border-radius: 5px; 
@@ -353,4 +270,13 @@ textarea {
     font-size: medium;
     font-variant: small-caps;
     font-stretch:ultra-expanded;
+}
+
+@keyframes animation_product{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.3);
+    }
 }

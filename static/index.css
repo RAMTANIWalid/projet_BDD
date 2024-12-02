@@ -22,6 +22,21 @@ body{
     backdrop-filter: blur(15px);
     box-shadow: -3px -3px 2px rgba(29, 27, 27, 0.5);
 }
+
+#container1{
+    opacity: 1;
+    width: 80%;
+    margin: 15px auto;
+    padding-bottom: 15px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    box-shadow: -3px -3px 2px rgba(29, 27, 27, 0.5);
+}
 #login_title{
     color: white;
     font-weight: bold;

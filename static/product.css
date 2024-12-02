@@ -1,0 +1,45 @@
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.container1{
+    margin-top: 150px;
+}
+#search_form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+}
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+#add_remove{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: auto;
+}

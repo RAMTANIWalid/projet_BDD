@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'manager.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +30,7 @@
         </div>
         <div id="link_container">
             <a href="" id="link_nav_bar">Products</a>
-            <a href="#componentForm" id="link_nav_bar">Add product</a>
+            <a href="#container1" id="link_nav_bar">Add product</a>
             <a href="" id="link_nav_bar">Employe shifts</a>
             <a href="" id="link_nav_bar">summary and statistics</a>
             <a href="" id='profile_normal'>
@@ -43,8 +44,8 @@
         <h1 id='composnat_h' style="font-size: 2.5em; font-weight: bold; color: navy;">LIST OF COMPOSANTS</h1>
         <section id="container_product">
             {% for composant in composants %}
-            <div class="composant">
-                <img src="{{url_for('static', filename=composant[2])}}" alt="Sample Image" class="composant-image">
+            <div class="composant" id='composant'>
+                <img src="{{url_for('static', filename=composant[2])}}" alt="Sample Image" class="composant-image" id='composant_image'>
                 <span class="composant-title">{{composant[0]}}</span>
                 <div class="composant-content">
                     <p class="composant-description">Explore Now!</p>
@@ -56,50 +57,54 @@
             </div>
             {% endfor %}
         </section>
-        <div>
-            <a href="" class="more-button" id="moreButton">More</a>
+        <form action='' methode='' id='myform1'>
+            <button type='submit' name='more' id="button_login" clas='more' >More</button>
 
-        </div>
+        </form>
     </main>
-    <section id='add_remove_container'>
-        <div class="form-container">
-            <h1>Add New Component</h1>
-            <form id="componentForm">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="brand">Brand:</label>
-                    <input type="text" id="brand" name="brand" required>
-                </div>
-                <div class="form-group">
-                    <label for="price">Price:</label>
-                    <input type="number" id="price" name="price" required min=0>
-                </div>
-                <a type="submit" class="submit-button">Add Component</a>
-            </form>
-        </div>
+    <div id="container1">
+        <form id="myform1" class='addcoposant_form'> <!--action="/add_product" methode='POST'-->
+            <h1 id="login_title">Add composant</h1>
+            <div id="email_container">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div id="email_container">
+                <textarea id="description" name="description" placeholder="Description" required></textarea>
+            </div>
+            <div id="email_container">
+                <input type="text" id="brand" placeholder="Brand" name="brand" required>
+            </div>
+            <div id="email_container">
+                <input type="number" id="price" placeholder="Price" name="price" required min=0>
+            </div>
+            <button id="button_login">Add composant</button>
+        </form>
+    </div>
 
-        <div class="form-container">
-            <h1>Remove Component</h1>
-            <form id="removeComponentForm">
-                <div class="form-group">
-                    <label for="name">Component Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="id">Component ID:</label>
-                    <input type="text" id="id" name="id" required>
-                </div>
-                <a type="submit" class="removelink">Remove Component</a>
-            </form>
-        </div>
-    </section>
 
+    <div id="container1">
+        <form id="myform1" class='addcoposant_form'> <!--action="/remove_product" methode='POST'-->
+            <h1 id="login_title">Remove composant</h1>
+            <div id="email_container">
+                <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div id="email_container">
+                <input type="text" id="id" name="id" placeholder="Identifiant" required>
+            </div>
+            <button id="button_login">Remove composant</button>
+        </form>
+    </div>
+    <script>
+        document.querySelectorAll('#composant').forEach(product => {
+            product.addEventListener('mouseenter', () => {
+                product.classList.add('animate'); // Add animation class on hover
+            });
+        
+            product.addEventListener('mouseleave', () => {
+                product.classList.remove('animate'); // Remove animation class when hover ends
+            });
+        });
+        
+    </script>
 </body>
 </html>

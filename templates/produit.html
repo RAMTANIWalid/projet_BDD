@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='product.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='manager.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <title>Product Management</title>
+</head>
+<body>
+    <nav id="nav_bar">
+        <div id="container_logoprof">
+            <a href="/">
+                <div id="magasin">
+                    <img src="{{ url_for('static', filename='MSI-Logo.png') }}" width="200" height="100" alt="Logo"/>
+                </div>
+            </a>
+            <a href="#" id="profile_mini">
+                <div id="profile">
+                    <img src="{{ url_for('static', filename='gohan.jpeg') }}" width="50" height="50" alt="Profile"/>
+                </div>
+            </a>
+        </div>
+        <div id="search_div">
+            <form id="search_form">
+                <input type="text" placeholder="Search for products..." name="product" id="product" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div id="link_container">
+            <a href="" id="link_nav_bar">Products</a>
+            <a href="">Add product</a>
+            <a href="" id="link_nav_bar">Employee Shifts</a>
+            <a href="" id="link_nav_bar">Summary and Statistics</a>
+            <a href="">
+                <div id="profile">
+                    <img src="{{ url_for('static', filename='gohan.jpeg') }}" width="50" height="50" alt="Profile"/>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class='container1'>
+        <div id="container1">
+            <form id="myform1" ><!--action="/update_shop" method="POST"-->
+                <h1 id='login_title'>Product informations and update</h1>
+                <img src="{{url_for('static', filename='gohan.jpeg')}}" alt="Sample Image" class="composant-image" id='composant_image'>
+                <div id='email_container'>
+                    <input type="text" name="product_name"  value="Mouse" required>
+                </div>
+                <div id='email_container'>
+                    <input type="text" name="product_brand"  value="DELL" required>
+                </div>
+                <div id='email_container'>
+                    <textarea name="product_description"  required>fnzhjdeenjfedjhr fheusuf hzufybehz hfhzuizhf</textarea>
+                </div>
+                <div id='email_container'>
+                    <input type="number" name="product_price"  value="29" required>
+                </div>
+                <button id="button_login">Update</button>
+            </form>
+        </div>
+        <div id="container1">
+            <form id="myform1" ><!--action="/update_shop" method="POST"-->
+                <h1 id='login_title'>Product supression</h1>
+
+                <button id="button_login">Remove</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
