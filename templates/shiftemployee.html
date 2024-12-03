@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='product.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='manager.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <title>Product Management</title>
+    <style>
+        #email_container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(0) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .available {
+            color: green;
+            font-weight: bold;
+        }
+        .not-available {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav_bar">
+        <div id="container_logoprof">
+            <a href="/">
+                <div id="magasin">
+                    <img src="{{ url_for('static', filename='MSI-Logo.png') }}" width="200" height="100" alt="Logo"/>
+                </div>
+            </a>
+            <a href="#" id="profile_mini">
+                <div id="profile">
+                    <img src="{{ url_for('static', filename='gohan.jpeg') }}" width="50" height="50" alt="Profile"/>
+                </div>
+            </a>
+        </div>
+        <div id="search_div">
+            <form id="search_form">
+                <input type="text" placeholder="Search for products..." name="product" id="product" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div id="link_container">
+            <a href="" id="link_nav_bar">Products</a>
+            <a href="">Add product</a>
+            <a href="" id="link_nav_bar">Employee Shifts</a>
+            <a href="" id="link_nav_bar">Summary and Statistics</a>
+            <a href="">
+                <div id="profile">
+                    <img src="{{ url_for('static', filename='gohan.jpeg') }}" width="50" height="50" alt="Profile"/>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+
+    <div class='container1'>
+        <div id="container1">
+            <form id="myform1" ><!--action="/update_shop" method="POST"-->
+                <h1 id='login_title'>Employe shifts</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Day</th>
+                            <th>Availability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dupont</td>
+                            <td>Jean</td>
+                            <td>jean.dupont@example.com</td>
+                            <td>+1 234 567 890</td>
+                            <td>Monday</td>
+                            <td class="available">Available</td>
+                        </tr>
+                        <a href="">
+                            <tr>
+                                <td>Martin</td>
+                                <td>Claire</td>
+                                <td>claire.martin@example.com</td>
+                                <td>+1 987 654 321</td>
+                                <td>Tuesday</td>
+                                <td class="not-available">Not Available</td>
+                            </tr>
+                        </a>
+                        <tr>
+                            <td>Lemoine</td>
+                            <td>Paul</td>
+                            <td>paul.lemoine@example.com</td>
+                            <td>+1 223 344 556</td>
+                            <td>Wednesday</td>
+                            <td class="available">Available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <div id="container1">
+            <form id="myform1" ><!--action="/update_shop" method="POST"-->
+                <h1 id='login_title'>Update Emplyee shifts</h1>
+                <div id='email_container'>
+                    <input type="email" id="emailGerant" name="emailGerant" placeholder="Email" value="" required>
+                </div>
+                <div id="email_container">
+                    
+                        <label for='sunday'>Sunday</lable>
+                        <input type="checkbox" id='sunday' name="days"></input>
+                        <label for='monday'>Monday</lable>
+                        <input type="checkbox" id='monday' name="days"></input>
+                        <label for='tuesday'>Tuesday</lable>
+                        <input type="checkbox" id='tuesday' name="days"></input>
+                        <label for='wednesday'>Wednesday</lable>
+                        <input type="checkbox" id='wednesday' name="days"></input>
+                        <label for='thursday'>Thursday</lable>
+                        <input type="checkbox" id='thursday' name="days"></input>
+                        <label for='friday'>Friday</lable>
+                        <input type="checkbox" id='friday' name="days"></input>
+                        <label for='saturday'>Saturday</lable>
+                        <input type="checkbox" name="days" id='saturday'></input>
+                    
+                </div>
+                <button id="button_login">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
